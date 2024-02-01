@@ -20,8 +20,8 @@ public class UserCreateController {
 	
 	@PostMapping(value = "/registerUser")
 	public ResponseEntity<UserDTO> registerUser (@RequestBody UserDTO user ){
-		return new ResponseEntity<>(registerService.createUser(user), HttpStatus.OK);
-//		return null;
+//		return new ResponseEntity<>(registerService.createUser(user), HttpStatus.OK);
+		return null;
 		
 	}
 
