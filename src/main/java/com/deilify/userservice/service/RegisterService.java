@@ -1,4 +1,4 @@
-package com.deilifyuserservice.service;
+package com.deilify.userservice.service;
 
 import com.deilify.userservice.dto.UserDTO;
 
