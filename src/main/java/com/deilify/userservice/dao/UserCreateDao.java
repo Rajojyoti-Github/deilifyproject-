@@ -3,10 +3,19 @@
  */
 package com.deilify.userservice.dao;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.deilify.userservice.entity.UserEntity;
+
 /**
  * @author user
  *
  */
-public class UserCreateDao {
+public interface UserCreateDao extends JpaRepository<UserEntity, Integer> {
+	
+	@Query(value = "Select * from deilify.user u where u.username = :username", nativeQuery = true)
+	UserEntity findByUserName(@Param("username") String username);
 
 }

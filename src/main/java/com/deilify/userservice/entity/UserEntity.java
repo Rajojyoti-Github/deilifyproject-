@@ -16,21 +16,22 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
 	
+	
 	private String username;
 	
 	private String password;
 	
-	private String first_name;
+	private String firstName;
 	
-	private String last_name;
+	private String lastName;
 	
 	private String phone;
 	
-	private LocalDate created_timestamp;
+	private LocalDate createdTimestamp;
 	
-	private LocalDate updated_timestamp;
+	private LocalDate updatedTimestamp;
 	
-	private String modified_at;
+	private String modifiedBy;
 
 	/**
 	 * @return the userId
@@ -75,31 +76,31 @@ public class UserEntity {
 	}
 
 	/**
-	 * @return the first_name
+	 * @return the firstName
 	 */
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
 	/**
-	 * @param first_name the first_name to set
+	 * @param firstName the firstName to set
 	 */
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	/**
-	 * @return the last_name
+	 * @return the lastName
 	 */
-	public String getLast_name() {
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
 
 	/**
-	 * @param last_name the last_name to set
+	 * @param lastName the lastName to set
 	 */
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	/**
@@ -117,70 +118,70 @@ public class UserEntity {
 	}
 
 	/**
-	 * @return the updated_timestamp
+	 * @return the createdTimestamp
 	 */
-	public LocalDate getUpdated_timestamp() {
-		return updated_timestamp;
+	public LocalDate getCreatedTimestamp() {
+		return createdTimestamp;
 	}
 
 	/**
-	 * @param updated_timestamp the updated_timestamp to set
+	 * @param createdTimestamp the createdTimestamp to set
 	 */
-	public void setUpdated_timestamp(LocalDate updated_timestamp) {
-		this.updated_timestamp = updated_timestamp;
+	public void setCreatedTimestamp(LocalDate createdTimestamp) {
+		this.createdTimestamp = createdTimestamp;
 	}
 
 	/**
-	 * @return the modified_at
+	 * @return the updatedTimestamp
 	 */
-	public String getModified_at() {
-		return modified_at;
+	public LocalDate getUpdatedTimestamp() {
+		return updatedTimestamp;
 	}
 
 	/**
-	 * @param modified_at the modified_at to set
+	 * @param updatedTimestamp the updatedTimestamp to set
 	 */
-	public void setModified_at(String modified_at) {
-		this.modified_at = modified_at;
+	public void setUpdatedTimestamp(LocalDate updatedTimestamp) {
+		this.updatedTimestamp = updatedTimestamp;
 	}
 
 	/**
-	 * @return the created_timestamp
+	 * @return the modifiedBy
 	 */
-	public LocalDate getCreated_timestamp() {
-		return created_timestamp;
+	public String getModifiedBy() {
+		return modifiedBy;
 	}
 
 	/**
-	 * @param created_timestamp the created_timestamp to set
+	 * @param modifiedBy the modifiedBy to set
 	 */
-	public void setCreated_timestamp(LocalDate created_timestamp) {
-		this.created_timestamp = created_timestamp;
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
 	/**
 	 * @param userId
 	 * @param username
 	 * @param password
-	 * @param first_name
-	 * @param last_name
+	 * @param firstName
+	 * @param lastName
 	 * @param phone
-	 * @param created_timestamp
-	 * @param updated_timestamp
-	 * @param modified_at
+	 * @param createdTimestamp
+	 * @param updatedTimestamp
+	 * @param modifiedBy
 	 */
-	public UserEntity(Integer userId, String username, String password, String first_name, String last_name,
-			String phone, LocalDate created_timestamp, LocalDate updated_timestamp, String modified_at) {
+	public UserEntity(Integer userId, String username, String password, String firstName, String lastName, String phone,
+			LocalDate createdTimestamp, LocalDate updatedTimestamp, String modifiedBy) {
 		super();
 		this.userId = userId;
 		this.username = username;
 		this.password = password;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.phone = phone;
-		this.created_timestamp = created_timestamp;
-		this.updated_timestamp = updated_timestamp;
-		this.modified_at = modified_at;
+		this.createdTimestamp = createdTimestamp;
+		this.updatedTimestamp = updatedTimestamp;
+		this.modifiedBy = modifiedBy;
 	}
 
 	/**
@@ -188,17 +189,14 @@ public class UserEntity {
 	 */
 	public UserEntity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		return "UserEntity [userId=" + userId + ", username=" + username + ", password=" + password + ", first_name="
-				+ first_name + ", last_name=" + last_name + ", phone=" + phone + ", created_timestamp="
-				+ created_timestamp + ", updated_timestamp=" + updated_timestamp + ", modified_at=" + modified_at + "]";
+		return "UserEntity [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", phone=" + phone + ", createdTimestamp=" + createdTimestamp
+				+ ", updatedTimestamp=" + updatedTimestamp + ", modifiedBy=" + modifiedBy + "]";
 	}
-
-	
 
 	
 	

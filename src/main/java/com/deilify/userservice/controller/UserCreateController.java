@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.deilify.userservice.dto.UserCreateDTO;
 import com.deilify.userservice.dto.UserDTO;
 import com.deilify.userservice.service.RegisterService;
 
@@ -19,9 +20,9 @@ public class UserCreateController {
 	RegisterService registerService;
 	
 	@PostMapping(value = "/registerUser")
-	public ResponseEntity<UserDTO> registerUser (@RequestBody UserDTO user ){
-//		return new ResponseEntity<>(registerService.createUser(user), HttpStatus.OK);
-		return null;
+	public ResponseEntity<UserCreateDTO> registerUser (@RequestBody UserDTO user ){
+		return new ResponseEntity<>(registerService.createUser(user), HttpStatus.OK);
+//		return null;
 		
 	}
 
