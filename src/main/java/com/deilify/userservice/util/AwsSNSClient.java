@@ -16,8 +16,8 @@ public class AwsSNSClient {
 	public static final String AWS_SECRET_KEY = "aws.secretKey";
 	
 	static {
-		System.setProperty(AWS_ACCESS_KEY_ID, "AKIAZQ3DSSYELH5CRYFZ");
-		System.setProperty(AWS_SECRET_KEY, "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");
+		System.setProperty(AWS_ACCESS_KEY_ID, "");
+		System.setProperty(AWS_SECRET_KEY, "");
 	}
 	
 	public static void main(String[] args) {
