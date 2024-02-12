@@ -5,9 +5,8 @@ import com.deilify.userservice.dto.UserDTO;
 
 public interface RegisterService {
 
-	  UserCreateDTO  createUser(UserDTO user);
+	UserCreateDTO createUser(UserDTO user);
 
-	
-	
+	UserCreateDTO updateUser(UserDTO user);
 
 }

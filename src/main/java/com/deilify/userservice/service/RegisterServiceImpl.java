@@ -79,4 +79,47 @@ public class RegisterServiceImpl implements RegisterService {
 		return myNewUser;
 	}
 
+	@Override
+	public UserCreateDTO updateUser(UserDTO user) {
+		
+		
+		if (user.getUsername() != null) {
+			UserEntity userUpdateDTO = userCreateDao.findByUserName(user.getUsername());
+			
+			if(userUpdateDTO != null) {
+				if(!isBlankNullEmpty(user.getFirstName())) {
+					userUpdateDTO.setFirstName(user.getFirstName());
+				}
+				if(!isBlankNullEmpty(user.getLastName())) {
+					userUpdateDTO.setFirstName(user.getLastName());
+				}
+				if(!isBlankNullEmpty(user.getLastName())) {
+					userUpdateDTO.setLastName(user.getLastName());
+				}
+				if(!isBlankNullEmpty(user.getPhone())) {
+					userUpdateDTO.setPhone(user.getPhone());
+				}
+				if(!isBlankNullEmpty(user.getPhone())) {
+					userUpdateDTO.setPhone(user.getPhone());
+				}
+				if(!isBlankNullEmpty(user.getPassword())) {
+					userUpdateDTO.setPassword(user.getPassword());
+				}
+				userUpdateDTO.setUpdatedTimestamp(LocalDate.now());
+				userUpdateDTO.setModifiedBy("System");
+				userCreateDao.save(userUpdateDTO);
+				
+			}
+		}
+		return mapUserToDto(user);
+	}
+	
+	private boolean isBlankNullEmpty(String parameter) {
+		boolean isEmpty = false;
+		if(parameter.isBlank() || parameter.isEmpty() || parameter == null) {
+			isEmpty = true;
+		}
+		return isEmpty;
+	}
+
 }
