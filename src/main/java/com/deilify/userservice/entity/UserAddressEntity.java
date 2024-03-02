@@ -1,35 +1,64 @@
-package com.deilify.userservice.dto;
+package com.deilify.userservice.entity;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
-public class UserAddressCreateDTO {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "useraddress")
+public class UserAddressEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Integer Id;
 	
-	private Integer userEntityId;
+	@Column(name = "user_entity_id")
+	private Integer userEntityId; 
 
+	@Column(name = "customer_mobile_number")
 	private String customerMobilenumber;
 
+	@Column(name = "customer_address_line1")
 	private String customerAddressLine1;
 
+	@Column(name = "customer_address_line2")
 	private String customerAddressLine2;
 
+	@Column(name = "customer_pin")
 	private String customerPin;
 
+	@Column(name = "customer_country")
 	private String customerCountry;
 
+	@Column(name = "customer_state")
 	private String customerState;
 
+	@Column(name = "customer_district")
 	private String customerDistrict;
 
+	@Column(name = "customer_landmark")
 	private String customerLandmark;
 
+	@Column(name = "created_timestamp")
 	private LocalDate createdTimestamp;
 
+	@Column(name = "updated_timestamp")
 	private LocalDate updatedTimestamp;
 
+	@Column(name = "modified_by")
 	private String modifiedBy;
+	
+	@OneToMany
+	@JoinColumn(name = "user_entity_id", referencedColumnName = "userId", insertable = false, updatable = false)
+	private UserEntity userEntity;
 
 	/**
 	 * @return the id
@@ -214,6 +243,20 @@ public class UserAddressCreateDTO {
 	}
 
 	/**
+	 * @return the userEntity
+	 */
+	public UserEntity getUserEntity() {
+		return userEntity;
+	}
+
+	/**
+	 * @param userEntity the userEntity to set
+	 */
+	public void setUserEntity(UserEntity userEntity) {
+		this.userEntity = userEntity;
+	}
+
+	/**
 	 * @param id
 	 * @param userEntityId
 	 * @param customerMobilenumber
@@ -227,11 +270,12 @@ public class UserAddressCreateDTO {
 	 * @param createdTimestamp
 	 * @param updatedTimestamp
 	 * @param modifiedBy
+	 * @param userEntity
 	 */
-	public UserAddressCreateDTO(Integer id, Integer userEntityId, String customerMobilenumber,
-			String customerAddressLine1, String customerAddressLine2, String customerPin, String customerCountry,
-			String customerState, String customerDistrict, String customerLandmark, LocalDate createdTimestamp,
-			LocalDate updatedTimestamp, String modifiedBy) {
+	public UserAddressEntity(Integer id, Integer userEntityId, String customerMobilenumber, String customerAddressLine1,
+			String customerAddressLine2, String customerPin, String customerCountry, String customerState,
+			String customerDistrict, String customerLandmark, LocalDate createdTimestamp, LocalDate updatedTimestamp,
+			String modifiedBy, UserEntity userEntity) {
 		super();
 		Id = id;
 		this.userEntityId = userEntityId;
@@ -246,26 +290,27 @@ public class UserAddressCreateDTO {
 		this.createdTimestamp = createdTimestamp;
 		this.updatedTimestamp = updatedTimestamp;
 		this.modifiedBy = modifiedBy;
+		this.userEntity = userEntity;
 	}
 
 	/**
 	 * 
 	 */
-	public UserAddressCreateDTO() {
+	public UserAddressEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		return "UserAddressCreateDTO [Id=" + Id + ", userEntityId=" + userEntityId + ", customerMobilenumber="
+		return "UserAddressEntity [Id=" + Id + ", userEntityId=" + userEntityId + ", customerMobilenumber="
 				+ customerMobilenumber + ", customerAddressLine1=" + customerAddressLine1 + ", customerAddressLine2="
 				+ customerAddressLine2 + ", customerPin=" + customerPin + ", customerCountry=" + customerCountry
 				+ ", customerState=" + customerState + ", customerDistrict=" + customerDistrict + ", customerLandmark="
 				+ customerLandmark + ", createdTimestamp=" + createdTimestamp + ", updatedTimestamp=" + updatedTimestamp
-				+ ", modifiedBy=" + modifiedBy + "]";
+				+ ", modifiedBy=" + modifiedBy + ", userEntity=" + userEntity + "]";
 	}
+	
+	
 
-	
-	
 }
