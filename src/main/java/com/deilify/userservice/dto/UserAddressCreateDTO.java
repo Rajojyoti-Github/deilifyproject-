@@ -1,7 +1,6 @@
 package com.deilify.userservice.dto;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class UserAddressCreateDTO {
 

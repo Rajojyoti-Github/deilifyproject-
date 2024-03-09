@@ -1,11 +1,6 @@
 package com.deilify.userservice.service;
 
-import java.security.SecureRandom;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.IntStream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,13 +21,13 @@ public class RegisterServiceImpl implements RegisterService {
 
 	public UserCreateDTO createUser(UserDTO user) {
 		if (user.getUsername() != null) {
-			UserEntity userCreateDTO = userCreateDao.findByUserName(user.getUsername());
+			UserEntity userCreateDTO = userCreateDao.findByUserName(user.getPhone());
 			if (userCreateDTO == null) {
 				UserEntity userEntity = new UserEntity();
 				userEntity.setUsername(user.getUsername());
 				userEntity.setFirstName(user.getFirstName());
 				userEntity.setLastName(user.getLastName());
-				userEntity.setPhone(user.getPhone());
+				userEntity.setMobileNumber(user.getPhone());
 				userEntity.setPassword(user.getPassword());
 				userEntity.setCreatedTimestamp(LocalDate.now());
 				userEntity.setUpdatedTimestamp(LocalDate.now());
@@ -99,10 +94,10 @@ public class RegisterServiceImpl implements RegisterService {
 					userUpdateDTO.setLastName(user.getLastName());
 				}
 				if(!isBlankNullEmpty(user.getPhone())) {
-					userUpdateDTO.setPhone(user.getPhone());
+					userUpdateDTO.setMobileNumber(user.getPhone());
 				}
 				if(!isBlankNullEmpty(user.getPhone())) {
-					userUpdateDTO.setPhone(user.getPhone());
+					userUpdateDTO.setMobileNumber(user.getPhone());
 				}
 				if(!isBlankNullEmpty(user.getPassword())) {
 					userUpdateDTO.setPassword(user.getPassword());

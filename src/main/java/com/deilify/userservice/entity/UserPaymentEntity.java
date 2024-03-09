@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,8 +36,8 @@ public class UserPaymentEntity {
 	@Column(name = "expiry")
 	private LocalDate expiry;
 	
-	@OneToMany
-	@JoinColumn(name = "userEntityId", referencedColumnName = "userId", insertable = false, updatable = false)
+	@ManyToOne
+	@JoinColumn(name = "user_entity_id", referencedColumnName = "userId", insertable = false, updatable = false)
 	private UserEntity userEntity;
 
 	/**

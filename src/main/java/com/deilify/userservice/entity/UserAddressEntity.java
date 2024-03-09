@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -56,7 +56,7 @@ public class UserAddressEntity {
 	@Column(name = "modified_by")
 	private String modifiedBy;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "user_entity_id", referencedColumnName = "userId", insertable = false, updatable = false)
 	private UserEntity userEntity;
 
@@ -298,7 +298,6 @@ public class UserAddressEntity {
 	 */
 	public UserAddressEntity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

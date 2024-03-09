@@ -15,7 +15,7 @@ import com.deilify.userservice.entity.UserEntity;
  */
 public interface UserCreateDao extends JpaRepository<UserEntity, Integer> {
 	
-	@Query(value = "Select * from deilify.user u where u.username = :username", nativeQuery = true)
-	UserEntity findByUserName(@Param("username") String username);
+	@Query(value = "Select * from deilify.user u where u.username = :phone", nativeQuery = true)
+	UserEntity findByUserName(@Param("phone") String phone);
 
 }

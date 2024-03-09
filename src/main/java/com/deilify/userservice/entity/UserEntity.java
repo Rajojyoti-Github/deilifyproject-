@@ -1,11 +1,16 @@
 package com.deilify.userservice.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,22 +21,38 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
 	
-	
+	@Column(name = "username")
 	private String username;
 	
+	@Column(name = "password")
 	private String password;
 	
+	@Column(name = "first_name")
 	private String firstName;
 	
+	@Column(name = "last_name")
 	private String lastName;
 	
-	private String phone;
+	@Column(name = "mobile_number")
+	private String mobileNumber;
 	
+	@Column(name = "created_timestamp")
 	private LocalDate createdTimestamp;
 	
+	@Column(name = "updated_timestamp")
 	private LocalDate updatedTimestamp;
 	
+	@Column(name = "modified_by")
 	private String modifiedBy;
+	
+	@OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<UserAddressEntity> userAddressEntity;
+	
+	@OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<UserPaymentEntity> userPaymentEntities;
+	
+	@OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<UserSessionEntity> userSessionEntities ;
 
 	/**
 	 * @return the userId
@@ -103,18 +124,20 @@ public class UserEntity {
 		this.lastName = lastName;
 	}
 
+	
+
 	/**
-	 * @return the phone
+	 * @return the mobileNumber
 	 */
-	public String getPhone() {
-		return phone;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
 	/**
-	 * @param phone the phone to set
+	 * @param mobileNumber the mobileNumber to set
 	 */
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 	/**
@@ -170,7 +193,7 @@ public class UserEntity {
 	 * @param updatedTimestamp
 	 * @param modifiedBy
 	 */
-	public UserEntity(Integer userId, String username, String password, String firstName, String lastName, String phone,
+	public UserEntity(Integer userId, String username, String password, String firstName, String lastName, String mobileNumber,
 			LocalDate createdTimestamp, LocalDate updatedTimestamp, String modifiedBy) {
 		super();
 		this.userId = userId;
@@ -178,7 +201,7 @@ public class UserEntity {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.phone = phone;
+		this.mobileNumber = mobileNumber;
 		this.createdTimestamp = createdTimestamp;
 		this.updatedTimestamp = updatedTimestamp;
 		this.modifiedBy = modifiedBy;
@@ -194,7 +217,7 @@ public class UserEntity {
 	@Override
 	public String toString() {
 		return "UserEntity [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", phone=" + phone + ", createdTimestamp=" + createdTimestamp
+				+ firstName + ", lastName=" + lastName + ", mobileNumber=" + mobileNumber + ", createdTimestamp=" + createdTimestamp
 				+ ", updatedTimestamp=" + updatedTimestamp + ", modifiedBy=" + modifiedBy + "]";
 	}
 

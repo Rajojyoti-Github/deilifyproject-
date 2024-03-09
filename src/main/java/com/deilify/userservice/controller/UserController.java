@@ -15,7 +15,7 @@ import com.deilify.userservice.service.RegisterService;
 
 @RestController
 @RequestMapping(value = "/api")
-public class UserCreateController {
+public class UserController {
 	
 	@Autowired
 	RegisterService registerService;
